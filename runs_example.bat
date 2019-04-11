@@ -2,9 +2,9 @@
 ### building index ###
 ######################
 
-#mkdir STAR_RSEM_index
-#cd STAR_RSEM_index
-#rsem-prepare-reference --gtf Homo_sapiens.GRCh38.87.gtf --star -p 6 Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM
+mkdir STAR_RSEM_index
+cd STAR_RSEM_index
+rsem-prepare-reference --gtf Homo_sapiens.GRCh38.87.gtf --star -p 6 Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM
 
 ##########################
 ### run NCLcomparator  ###
