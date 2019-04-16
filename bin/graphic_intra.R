@@ -25,7 +25,11 @@ input2 <- data.matrix(input[,c(8:inputLastcol)])
 inputToolsNum <- inputLastcol-7
 inputToolsNames <- colnames(input2)
 
-
+if(inputToolsNum==1)
+{
+   write.table(input, file="intraMerged_junction.result", append=FALSE, 
+              quote=FALSE, sep="\t", row.names=FALSE, col.names=TRUE)
+}
 
 if(inputToolsNum >1)
 {  
