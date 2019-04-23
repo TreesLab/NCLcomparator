@@ -1,6 +1,6 @@
 # Manual of NCLcomparator
 --------------------------
-#### Version: 0.0.1
+#### Version: 1.0.0
 #### NCLcomparator, a comprehensive tool for analyzing non-co-linear (NCL) transcripts (fusion, trans-splicing, and circular RNA), enables to combine several NCL results from different detection tools, and to provide the characteristics of NCL events. 
 ------------------------------
 The NCLcomparator program, document, and test set can be downloaded from our FTP site: ftp://treeslab1.genomics.sinica.edu.tw/NCLcomparator or GitHub: https://github.com/TreesLab/NCLcomparator.
@@ -18,6 +18,7 @@ $ chmod +x bin/*
 ### 3. Installation external tools
    (1) bedtools (http://bedtools.readthedocs.io/en/latest/) \
    Bedtools is used to deal with genomic coordinate data in a BED format. To get latest bedtools source from releases and install it. 
+   Note: Bedtools (<=v2.25.0)
 ```sh
 $ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools2.25.0.tar.gz
 $ tar -zxvf bedtools-2.25.0.tar.gz
