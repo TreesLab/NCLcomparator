@@ -17,7 +17,7 @@ $ chmod +x bin/*
 ```
 ### 3. Installation external tools
    (1) bedtools (http://bedtools.readthedocs.io/en/latest/) \
-   Bedtools is used to deal with genomic coordinate data in a BED format. To get latest bedtools source from releases and install it. 
+   Bedtools is used to deal with genomic coordinate data in a BED format. To get latest bedtools source from releases and install it. \
    Note: Bedtools (<=v2.25.0)
 ```sh
 $ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools2.25.0.tar.gz
