@@ -87,7 +87,10 @@ The following steps are to generate the index files before running NCLcomparator
 $ mkdir STAR_RSEM_index
 $ cd STAR_RSEM_index
 $ rsem-prepare-reference --gtf /path/to/Homo_sapiens.GRCh38.87.gtf \
-  --star -p 10 /path/to/Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM
+$ --star \
+$  -p 10 \
+$  /path/to/Homo_sapiens.GRCh38.dna.primary_assembly.fa \
+$ RSEM
 ```
 The STAR and RSEM index of the genome hg38 and the annotation ensemble 87 is prepared and can be downloaded in our FTP (ftp://treeslab1.genomics.sinica.edu.tw/NCLcomparator/STAR_RSEM_index.tar.gz). 
 
