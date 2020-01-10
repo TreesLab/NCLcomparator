@@ -321,7 +321,7 @@ if [[ -n "$CIRCULAR" ]]; then
       cat intraMerged_toolOne.tmp1 | sed -e '1d' | awk '$7 > 0 {print $1":"$2":"$3":"$4":"$5":"$6 "\t" $7}' | sort -k1,1 | uniq > intraMerged_toolOne.tmp2
       cat intraMerged_toolOne.tmp2 | awk '{print $1 "\t" ($2/T)*1000000 "\t" ($2/M)*1000000}' T=$totalRead  M=$UMRead | sort -k1,1 > intraMerged_toolOne.tmp3
       join -o 1.1 1.2 2.2 2.3 intraMerged_toolOne.tmp2 intraMerged_LR.tmp -a1 -e nd | sort -k1,1 | uniq > intraMerged_toolOne.tmp4.1
-      cat intraMerged_toolOne.tmp4.1 | sed 's/nd/0/g' | awk '{print $1 "\t" $2/($2+$3+$4+1) "\t" (2*$2)/(2*$2+$3+$3)}' | sort -k1,1  | uniq  > intraMerged_toolOne.tmp4
+      cat intraMerged_toolOne.tmp4.1 | sed 's/nd/0/g' | awk '{print $1 "\t" $2/($2+$3+$4+1) "\t" (2*$2)/(2*$2+$3+$4)}' | sort -k1,1  | uniq  > intraMerged_toolOne.tmp4
       
       join -o 1.1 1.2 2.2 2.3 intraMerged_toolOne.tmp2 intraMerged_toolOne.tmp3 -a1 -e nd | tr ' ' \\t > intraMerged_toolOne.tmp5.1
       join -o 1.1 1.2 1.3 1.4 2.2 2.3 intraMerged_toolOne.tmp5.1 intraMerged_toolOne.tmp4 -a1 -e nd |tr ' ' \\t > intraMerged_toolOne.tmp5
