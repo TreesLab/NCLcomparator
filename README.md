@@ -51,6 +51,7 @@ $ tar -xzf v1.3.0.tar.gz
 $ cd RSEM-1.3.0
 $ make
 $ make ebseq
+$ sudo su 
 $ make install
 ```
        
