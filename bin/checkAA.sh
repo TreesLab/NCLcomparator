@@ -61,7 +61,7 @@ else
      cat $genome | sed 's/>\([0-9XYMT]\)/>chr\1/' | sed 's/dna.*//'  > genome.fa
 fi
 
-bedtools getfasta -fi genome.fa -bed NCL_200_interval.bed -s -name -fo NCL_200_interval.fa
+$tools_bin/bedtools getfasta -fi genome.fa -bed NCL_200_interval.bed -s -name -fo NCL_200_interval.fa
 $tools_bin/merge_paired_sequences.py NCL_200_interval.fa  NCL_200.merged.fa
 
 
@@ -73,10 +73,10 @@ cat $genome | $tools_bin/SeqOut chrM.list 1 > chrM.fa
 cat <(echo ">RepChrM") <(cat chrM.fa | sed -e '1d' ) <(cat chrM.fa | sed -e '1d') > RepChrM.fa  
 cat $trpts/*.fa RepChrM.fa > others.fa
 
-$tools_bin/mp_blat.py $genome NCL_200.merged.fa NCL.rG.1.psl -p $thread --blat_bin blat --tmp_path BLAT_tmp
-$tools_bin/mp_blat.py $genome NCL_200.merged.fa NCL.rG.2.psl -p $thread --blat_bin blat --blat_opt "-tileSize=9 -stepSize=9 -repMatch=32768" --tmp_path BLAT_tmp
-$tools_bin/mp_blat.py others.fa NCL_200.merged.fa NCL.rO.1.psl -p $thread --blat_bin blat --tmp_path BLAT_tmp
-$tools_bin/mp_blat.py others.fa NCL_200.merged.fa NCL.rO.2.psl -p $thread --blat_bin blat --blat_opt "-tileSize=9 -stepSize=9 -repMatch=32768" --tmp_path BLAT_tmp
+$tools_bin/mp_blat.py $genome NCL_200.merged.fa NCL.rG.1.psl -p $thread --blat_bin $tools_bin/blat --tmp_path BLAT_tmp
+$tools_bin/mp_blat.py $genome NCL_200.merged.fa NCL.rG.2.psl -p $thread --blat_bin $tools_bin/blat --blat_opt "-tileSize=9 -stepSize=9 -repMatch=32768" --tmp_path BLAT_tmp
+$tools_bin/mp_blat.py others.fa NCL_200.merged.fa NCL.rO.1.psl -p $thread --blat_bin $tools_bin/blat --tmp_path BLAT_tmp
+$tools_bin/mp_blat.py others.fa NCL_200.merged.fa NCL.rO.2.psl -p $thread --blat_bin $tools_bin/blat --blat_opt "-tileSize=9 -stepSize=9 -repMatch=32768" --tmp_path BLAT_tmp
 
 echo ""
 echo "Step3: evaluate blat results"
