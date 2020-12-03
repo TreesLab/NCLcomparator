@@ -18,20 +18,22 @@ $ chmod +x bin/*
 ### 3. Installation external tools
    (1) bedtools (http://bedtools.readthedocs.io/en/latest/) \
    Bedtools is used to deal with genomic coordinate data in a BED format. To get latest bedtools source from releases and install it. \
-   Note: Bedtools version (<=v2.25.0)
+   Note: Bedtools must be the version v2.25.0.
 ```sh
 $ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools2.25.0.tar.gz
 $ tar -zxvf bedtools-2.25.0.tar.gz
 $ cd bedtools2
 $ make
-$ sudo cp ./bin/ /usr/local/bin
+$ #copy bedtools-2.25.0 to NCLcomparater-master/bin folder
+$ cp ./bin/ /path/NCLcomparator-master/bin 
 ```
    
    (2) BLAT (http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/) \
         BLAT is used to align the concatenated sequences (the exonic sequences flanking the NCL junctions; see Implementation) against the reference genome and well-annotated transcripts and detect potentially false positive NCL events originating from ambiguous alignments (i.e., the NCL events have alternative co-linear explanations and multiple hits). To get executable BLAT prgram.
 ```sh
 $ wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat
-$ sudo cp blat /usr/local/bin
+$ #copy blat to NCLcomparater-master/bin folder
+$ cp blat /path/NCLcomparator-master/bin
 ```
        
    (3) STAR (https://github.com/alexdobin/STAR) \
