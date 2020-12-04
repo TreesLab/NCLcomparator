@@ -295,12 +295,12 @@ if [[ -n "$CIRCULAR" ]]; then
    if [[ -n "$SCE" ]]; then 
       echo "Step: to determine donor/acceptor side within SCE"
       paste <(cat intraMerged.out | awk '{print $1 "\t" $2-1 "\t" $2}')  <(cat intraMerged.out | awk '{print $1":"$2":"$3":"$4":"$5":"$6}')  > intraMerged_SCE.tmp1
-      bedtools intersect -a intraMerged_SCE.tmp1 -b $SCE -wa | sort | uniq | awk '{print $4":1"}' > intraMerged_SCE.tmp2
-      bedtools intersect -a intraMerged_SCE.tmp1 -b $SCE -v | sort | uniq | awk '{print $4":0"}' > intraMerged_SCE.tmp3
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a intraMerged_SCE.tmp1 -b $SCE -wa | sort | uniq | awk '{print $4":1"}' > intraMerged_SCE.tmp2
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a intraMerged_SCE.tmp1 -b $SCE -v | sort | uniq | awk '{print $4":0"}' > intraMerged_SCE.tmp3
       cat intraMerged_SCE.tmp2 intraMerged_SCE.tmp3 | tr ':' '\t' > intraMerged_SCE.tmp4
       paste <(cat intraMerged_SCE.tmp4 | awk '{print $4 "\t" $5-1 "\t" $5}')  <(cat intraMerged_SCE.tmp4 | tr '\t' ':')  > intraMerged_SCE.tmp5
-      bedtools intersect -a intraMerged_SCE.tmp5 -b $SCE -wa  | sort | uniq | awk '{print $4":1"}' > intraMerged_SCE.tmp6
-      bedtools intersect -a intraMerged_SCE.tmp5 -b $SCE -v  | sort | uniq| awk '{print $4":0"}' > intraMerged_SCE.tmp7
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a intraMerged_SCE.tmp5 -b $SCE -wa  | sort | uniq | awk '{print $4":1"}' > intraMerged_SCE.tmp6
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a intraMerged_SCE.tmp5 -b $SCE -v  | sort | uniq| awk '{print $4":0"}' > intraMerged_SCE.tmp7
       cat intraMerged_SCE.tmp6 intraMerged_SCE.tmp7 | tr ':' '\t'  | sort -k1,1 -k2,2n > intraMerged_tmp_SCE.txt
       paste <(cat intraMerged.tmp5 | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6}') <(cat intraMerged.tmp5 | tr '\t' ':') | sort -k1,1 | uniq > intraMerged.tmp6.1
       cat intraMerged_tmp_SCE.txt | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6 "\t" $7":"$8 }' | sort -k1,1 | uniq > intraMerged_SCE.txt.tmp1
@@ -357,8 +357,8 @@ if [[ -n "$FUSION" ]]; then
      #echo $getOne
      getOneName=$(echo $getOne | sed 's/[.]/\t/g' | awk '{print $1}') 
      cat $FUSION/$getOne | sort -k1,1 -k2,2n | awk '$1~/^chr[0-9XY]*$/ {print $0}' | awk '$3~/^chr[0-9XY]*$/ {print $0}' | awk '$2~/^[0-9]*$/ {print $0}'| awk '$4~/^[0-9]*$/ {print $0}' | awk '{print $1 "\t" $2-1 "\t" $2 "\t" $1":"$2":"$3":"$4":"$5}' | sort -k1,1 -k2,2n | uniq  > inter_tmp1.bed
-     bedtools intersect -a inter_tmp1.bed -b exons_boundary.bed -wa -wb | awk '{print $4 "\t" $8}' | sed 's/:/\t/g' | awk '{print $3 "\t" $4-1 "\t" $4 "\t" $1":"$2":"$3":"$4":"$5":"$6":"$7":"$8":"$9}' | sort -k1,1 -k2,2n | uniq > inter_tmp2.bed
-     bedtools intersect -a inter_tmp2.bed -b exons_boundary.bed  -wa -wb | awk '{print $4 "\t" $8}' | sed 's/:/\t/g' | awk '{print $6 "\t" $7 "\t" $8 "\t" $10 "\t" $11 "\t" $12 "\t" $5 "\t" $9 "\t" $13}'| sort -k1,1 -k2,2n | uniq | awk '$8!=$9 {print $0}' > inter_tmp.result
+     $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a inter_tmp1.bed -b exons_boundary.bed -wa -wb | awk '{print $4 "\t" $8}' | sed 's/:/\t/g' | awk '{print $3 "\t" $4-1 "\t" $4 "\t" $1":"$2":"$3":"$4":"$5":"$6":"$7":"$8":"$9}' | sort -k1,1 -k2,2n | uniq > inter_tmp2.bed
+     $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a inter_tmp2.bed -b exons_boundary.bed  -wa -wb | awk '{print $4 "\t" $8}' | sed 's/:/\t/g' | awk '{print $6 "\t" $7 "\t" $8 "\t" $10 "\t" $11 "\t" $12 "\t" $5 "\t" $9 "\t" $13}'| sort -k1,1 -k2,2n | uniq | awk '$8!=$9 {print $0}' > inter_tmp.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $7}' | sort -k1,1 -k2,2n | uniq | bedtools groupby -g 1 -c 2 -o sum | sort | uniq > inter_tmp1.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $8}' | sort -k1,1 -k2,2n | uniq | bedtools groupby -g 1 -c 2 -o collapse | sort | uniq > inter_tmp2.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $9}' | sort -k1,1 -k2,2n | uniq | bedtools groupby -g 1 -c 2 -o collapse | sort | uniq > inter_tmp3.result
@@ -451,12 +451,12 @@ if [[ -n "$FUSION" ]]; then
    if [[ -n "$SCE" ]]; then 
       echo "Step: to determine donor/acceptor side within SCE"
       paste <(cat interMerged.out | awk '{print $1 "\t" $2-1 "\t" $2}')  <(cat interMerged.out | awk '{print $1":"$2":"$3":"$4":"$5":"$6}')  > interMerged_SCE.tmp1
-      bedtools intersect -a interMerged_SCE.tmp1 -b $SCE -wa | sort | uniq | awk '{print $4":1"}' > interMerged_SCE.tmp2
-      bedtools intersect -a interMerged_SCE.tmp1 -b $SCE -v | sort | uniq | awk '{print $4":0"}' > interMerged_SCE.tmp3
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a interMerged_SCE.tmp1 -b $SCE -wa | sort | uniq | awk '{print $4":1"}' > interMerged_SCE.tmp2
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a interMerged_SCE.tmp1 -b $SCE -v | sort | uniq | awk '{print $4":0"}' > interMerged_SCE.tmp3
       cat interMerged_SCE.tmp2 interMerged_SCE.tmp3 | tr ':' '\t' > interMerged_SCE.tmp4
       paste <(cat interMerged_SCE.tmp4 | awk '{print $4 "\t" $5-1 "\t" $5}')  <(cat interMerged_SCE.tmp4 | tr '\t' ':')  > interMerged_SCE.tmp5
-      bedtools intersect -a interMerged_SCE.tmp5 -b $SCE -wa  | sort | uniq | awk '{print $4":1"}' > interMerged_SCE.tmp6
-      bedtools intersect -a interMerged_SCE.tmp5 -b $SCE -v  | sort | uniq| awk '{print $4":0"}' > interMerged_SCE.tmp7
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a interMerged_SCE.tmp5 -b $SCE -wa  | sort | uniq | awk '{print $4":1"}' > interMerged_SCE.tmp6
+      $BASEDIR\/bin\/bedtools2/bin/bedtools intersect -a interMerged_SCE.tmp5 -b $SCE -v  | sort | uniq| awk '{print $4":0"}' > interMerged_SCE.tmp7
       cat interMerged_SCE.tmp6 interMerged_SCE.tmp7 | tr ':' '\t'  | sort -k1,1 -k2,2n > interMerged_tmp_SCE.txt
       paste <(cat interMerged.tmp4 | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6}') <(cat interMerged.tmp4 | tr '\t' ':') | sort -k1,1 | uniq > interMerged.tmp5.1
       cat interMerged_tmp_SCE.txt | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6 "\t" $7":"$8 }' | sort -k1,1 | uniq > interMerged_SCE.txt.tmp1
