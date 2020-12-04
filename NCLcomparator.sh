@@ -288,7 +288,7 @@ if [[ -n "$CIRCULAR" ]]; then
    join -o 1.2 2.2 intraMerged.tmp5.1 OC.final.tmp1 -a1 -e nd | tr ' ' \\t | tr ':' \\t > intraMerged.tmp5
 
    if [[ -z "$SCE" ]]; then 
-       echo "Chr_donor Pos_donor Strand_donor Chr_acceptot Pos_acceptor Strand_acceptor Gene_name Number_of_Exon TPM FPKM LinearRead_donor LinearRead_acceptor P_D P_A P_median Out_of_Circle" | tr ' ' \\t > Header.tmp1  
+       echo "Chr_donor Pos_donor Strand_donor Chr_acceptor Pos_acceptor Strand_acceptor Gene_name Number_of_Exon TPM FPKM LinearRead_donor LinearRead_acceptor P_D P_A P_median Out_of_Circle" | tr ' ' \\t > Header.tmp1  
     fi
 
 
@@ -305,7 +305,7 @@ if [[ -n "$CIRCULAR" ]]; then
       paste <(cat intraMerged.tmp5 | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6}') <(cat intraMerged.tmp5 | tr '\t' ':') | sort -k1,1 | uniq > intraMerged.tmp6.1
       cat intraMerged_tmp_SCE.txt | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6 "\t" $7":"$8 }' | sort -k1,1 | uniq > intraMerged_SCE.txt.tmp1
       join -o 1.2 2.2 intraMerged.tmp6.1 intraMerged_SCE.txt.tmp1 -a1 -e nd | tr ' ' \\t | tr ':' \\t > intraMerged.tmp5
-      echo "Chr_donor Pos_donor Strand_donor Chr_acceptot Pos_acceptor Strand_acceptor Gene_name Number_of_Exon TPM FPKM LinearRead_donor LinearRead_acceptor P_D P_A P_median Out_of_Circle SCE_D SCE_A" | tr ' ' \\t > Header.tmp1  
+      echo "Chr_donor Pos_donor Strand_donor Chr_acceptor Pos_acceptor Strand_acceptor Gene_name Number_of_Exon TPM FPKM LinearRead_donor LinearRead_acceptor P_D P_A P_median Out_of_Circle SCE_D SCE_A" | tr ' ' \\t > Header.tmp1  
     fi
 
    echo "Step: to calculate RPM, CF and RNCL in each tool "
@@ -444,7 +444,7 @@ if [[ -n "$FUSION" ]]; then
     join -o 1.2 2.2 interMerged.tmp4.3 inter_gene_pmed.txt -a1 -e nd | tr ' ' \\t | tr ':' '\t' | sort -k1,1 | uniq > interMerged.tmp4
 
      if [[ -z "$SCE" ]]; then 
-       echo "Chr_donor Pos_donor Strand_donor Chr_acceptot Pos_acceptor Strand_acceptor GeneName_donor GeneName_acceptor TPM_donor FPKM_donor TPM_acceptor FPKM_acceptor LinearRead_donor LinearRead_acceptor P_D P_A Pmedian_donor Pmedian_acceptor" | tr ' ' \\t > Header.tmp1  
+       echo "Chr_donor Pos_donor Strand_donor Chr_acceptor Pos_acceptor Strand_acceptor GeneName_donor GeneName_acceptor TPM_donor FPKM_donor TPM_acceptor FPKM_acceptor LinearRead_donor LinearRead_acceptor P_D P_A Pmedian_donor Pmedian_acceptor" | tr ' ' \\t > Header.tmp1  
     fi
 
 
@@ -461,7 +461,7 @@ if [[ -n "$FUSION" ]]; then
       paste <(cat interMerged.tmp4 | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6}') <(cat interMerged.tmp4 | tr '\t' ':') | sort -k1,1 | uniq > interMerged.tmp5.1
       cat interMerged_tmp_SCE.txt | awk '{print $1"_"$2"_"$3"_"$4"_"$5"_"$6 "\t" $7":"$8 }' | sort -k1,1 | uniq > interMerged_SCE.txt.tmp1
       join -o 1.2 2.2 interMerged.tmp5.1 interMerged_SCE.txt.tmp1 -a1 -e nd | tr ' ' \\t | tr ':' \\t > interMerged.tmp4
-      echo "Chr_donor Pos_donor Strand_donor Chr_acceptot Pos_acceptor Strand_acceptor GeneName_donor GeneName_acceptor TPM_donor FPKM_donor TPM_acceptor FPKM_acceptor LinearRead_donor LinearRead_acceptor P_D P_A Pmedian_donor Pmedian_acceptor SCE_D SCE_A" | tr ' ' \\t > Header.tmp1  
+      echo "Chr_donor Pos_donor Strand_donor Chr_acceptor Pos_acceptor Strand_acceptor GeneName_donor GeneName_acceptor TPM_donor FPKM_donor TPM_acceptor FPKM_acceptor LinearRead_donor LinearRead_acceptor P_D P_A Pmedian_donor Pmedian_acceptor SCE_D SCE_A" | tr ' ' \\t > Header.tmp1  
    fi
 
    echo "Step: to calculate RPM in each tool " 
