@@ -45,6 +45,7 @@ $ wget https://github.com/alexdobin/STAR/archive/2.5.3a.tar.gz
 $ tar -xzf 2.5.3a.tar.gz
 $ cd STAR-2.5.3a
 $ sudo cp bin/Linux_x86_64_static/STAR /usr/local/bin
+$ cd ..
 ```
        
    (4) RSEM (https://github.com/deweylab/RSEM) \
