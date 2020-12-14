@@ -26,7 +26,7 @@ $ cd bedtools2
 $ make
 $ cd ..
 $ #copy bedtools-2.25.0 to NCLcomparater-master/bin folder
-$ cp bedtools2/bin/ NCLcomparator-master/bin 
+$ cp bedtools2/bin/* bin 
 ```
    
    (2) BLAT (http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/) \
