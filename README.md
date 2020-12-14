@@ -58,6 +58,8 @@ $ make
 $ make ebseq
 $ sudo su 
 $ make install
+$ exit
+$ cd ..
 ```
        
    (5) R (https://www.r-project.org/) \
