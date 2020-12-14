@@ -10,8 +10,8 @@ The NCLcomparator program, document, and test set can be downloaded from our FTP
        
 ### 2. Installation
 ```sh
-$ tar zxvf NCLcomparator.tar.gz
-$ cd NCLcomparator
+$ unzip NCLcomparator-master.zip
+$ cd NCLcomparator-master
 $ chmod +x NCLcomparator.sh
 $ chmod +x bin/*
 ```
