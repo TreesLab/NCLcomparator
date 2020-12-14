@@ -26,7 +26,7 @@ $ cd bedtools2
 $ make
 $ cd ..
 $ #copy bedtools-2.25.0 to NCLcomparater-master/bin folder
-$ cp bedtools2/bin/* bin 
+$ cp bedtools2/bin/* bin/ 
 ```
    
    (2) BLAT (http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/) \
@@ -35,7 +35,7 @@ $ cp bedtools2/bin/* bin
 $ wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat
 $ chmod +x blat 
 $ #copy blat to NCLcomparater-master/bin folder
-$ cp blat NCLcomparator-master/bin
+$ cp blat bin/
 ```
        
    (3) STAR (https://github.com/alexdobin/STAR) \
