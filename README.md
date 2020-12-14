@@ -20,7 +20,7 @@ $ chmod +x bin/*
    Bedtools is used to deal with genomic coordinate data in a BED format. To get latest bedtools source from releases and install it. \
    Note: Bedtools must be the version v2.25.0.
 ```sh
-$ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools2.25.0.tar.gz
+$ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
 $ tar -zxvf bedtools-2.25.0.tar.gz
 $ cd bedtools2
 $ make
