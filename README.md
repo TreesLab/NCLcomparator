@@ -35,7 +35,7 @@ $ cp bedtools2/bin/* bin/
 $ wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat
 $ chmod +x blat 
 $ #copy blat to NCLcomparater-master/bin folder
-$ cp blat bin/
+$ mv blat bin/
 ```
        
    (3) STAR (https://github.com/alexdobin/STAR) \
