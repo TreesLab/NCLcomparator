@@ -19,6 +19,6 @@ rsem-prepare-reference --gtf Homo_sapiens.GRCh38.87.gtf --star -p 6 Homo_sapiens
  -read2 SRR1637089_2.fastq.gz \
  -intra example/5col/intra \
  -inter example/5col/inter \
- -sce example/SCE \
+ -sce example/SCE/SCE_hg38.bed \
  -o HeLa
  
