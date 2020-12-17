@@ -85,6 +85,7 @@ $ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_28/gencod
 $ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_28/gencode.v28.lncRNA_transcripts.fa.gz
 $ gunzip gencode.v28.pc_transcripts.fa.gz
 $ gunzip gencode.v28.lncRNA_transcripts.fa.gz
+$ cd ..
 ``` 
  (2) (Optional) Synonymous Constraint elements (SCE), which can be download from (http://compbio.mit.edu/SCE/)
 
