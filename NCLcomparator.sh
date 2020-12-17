@@ -59,7 +59,7 @@ done
 if [[ -z "$geneGTF" ]]; then
    echo ""
    echo "Usage:"
-   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome annotation] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
+   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome fasta file] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
    echo ""
    echo "ERROR: no annotation gtf file !"
    echo ""
@@ -69,7 +69,7 @@ fi
 if [[ -z "$genome" ]]; then
    echo ""
    echo "Usage:"
-   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome annotation] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
+   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome fasta file] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
    echo ""
    echo "ERROR: no genome file !"
    echo ""
@@ -79,7 +79,7 @@ fi
 if [[ -z "$trpts" ]]; then
    echo ""
    echo "Usage:"
-   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome annotation] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
+   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome fasta file] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
    echo ""
    echo "ERROR: no trpts folder !"
    echo ""
@@ -89,7 +89,7 @@ fi
 if [[ -z "$SRindex" ]]; then
    echo ""
    echo "Usage:"
-   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome annotation] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
+   echo "./NCLcomparator.sh -gtf [annotation gtf file] -genome [genome fasta file] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
    echo ""
    echo "ERROR: no STAR_RSEM_index folder !"
    echo ""
@@ -99,7 +99,7 @@ fi
 if [[ -z "$read1" ]]; then
    echo ""
    echo "Usage:"
-   echo "./NCLcomparator.sh -gtf [annotation gtf file] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
+   echo "./NCLcomparator.sh -gtf [annotation gtf file]  -genome [genome fasta file] -trpts [transcripts folder] -thread [number of thread] -index [STAR_RSEM_index folder] -read1 [read1 fastq.gz file] -read2 [read2 fastq.gz file]  -intra [circular results folder] -inter [fusion results folder] -sce [sce bed file] -o [ output Name] "
    echo ""
    echo "ERROR: no read1 fastq.gz file !"
    echo ""
