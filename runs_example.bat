@@ -4,14 +4,14 @@
 
 mkdir STAR_RSEM_index
 cd STAR_RSEM_index
-rsem-prepare-reference --gtf Homo_sapiens.GRCh38.87.gtf --star -p 6 Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM
+rsem-prepare-reference --gtf /path to/Homo_sapiens.GRCh38.87.gtf --star -p 6 /path to/Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM
 
 ##########################
 ### run NCLcomparator  ###
 ##########################
 
-./NCLcomparator_new.sh -gtf Homo_sapiens.GRCh38.87.gtf \
- -genome GRCh38.p10.genome.fa \
+./NCLcomparator.sh -gtf Homo_sapiens.GRCh38.87.gtf \
+ -genome  Homo_sapiens.GRCh38.dna.primary_assembly.fa\
  -trpts trpts \
  -thread 6 \
  -index STAR_RSEM_index \
