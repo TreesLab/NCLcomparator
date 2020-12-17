@@ -25,7 +25,7 @@ $ tar -zxvf bedtools-2.25.0.tar.gz
 $ cd bedtools2
 $ make
 $ cd ..
-$ #copy bedtools-2.25.0 to NCLcomparater-master/bin folder
+$ #move bedtools-2.25.0 to NCLcomparater-master/bin folder
 $ mv bedtools2 bin/ 
 ```
    
@@ -34,7 +34,7 @@ $ mv bedtools2 bin/
 ```sh
 $ wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/blat/blat
 $ chmod +x blat 
-$ #copy blat to NCLcomparater-master/bin folder
+$ #move blat to NCLcomparater-master/bin folder
 $ mv blat bin/
 ```
        
