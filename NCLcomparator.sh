@@ -361,7 +361,7 @@ if [[ -n "$FUSION" ]]; then
      $BASEDIR\/bin/bedtools2/bin/bedtools intersect -a inter_tmp2.bed -b exons_boundary.bed  -wa -wb | awk '{print $4 "\t" $8}' | sed 's/:/\t/g' | awk '{print $6 "\t" $7 "\t" $8 "\t" $10 "\t" $11 "\t" $12 "\t" $5 "\t" $9 "\t" $13}'| sort -k1,1 -k2,2n | uniq | awk '$8!=$9 {print $0}' > inter_tmp.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $7}' | sort -k1,1 -k2,2n | uniq | $BASEDIR\/bin/bedtools2/bin/bedtools groupby -g 1 -c 2 -o sum | sort | uniq > inter_tmp1.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $8}' | sort -k1,1 -k2,2n | uniq | $BASEDIR\/bin/bedtools2/bin/bedtools groupby -g 1 -c 2 -o collapse | sort | uniq > inter_tmp2.result
-     cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $9}' | sort -k1,1 -k2,2n | uniq |  $BASEDIR\/bin/bedtools2/bin/bedtoolsgroupby -g 1 -c 2 -o collapse | sort | uniq > inter_tmp3.result
+     cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 "\t" $9}' | sort -k1,1 -k2,2n | uniq |  $BASEDIR\/bin/bedtools2/bin/bedtools groupby -g 1 -c 2 -o collapse | sort | uniq > inter_tmp3.result
      cat inter_tmp.result | sed 's/+/sense/g' | sed 's/-/anti/g' | awk '{print $1":"$2":"$3":"$4":"$5":"$6 }' | sort | uniq > inter_tmp4.result
      join -o 1.1 2.2 inter_tmp4.result inter_tmp1.result -a1 -e nd | tr ' ' \\t | sort  | uniq > inter_tmp5.result
      join -o 1.1 1.2 2.2 inter_tmp5.result inter_tmp2.result -a1 -e nd | tr ' ' \\t | sort  | uniq > inter_tmp6.result
