@@ -61,7 +61,7 @@ else
      cat $genome | sed 's/>\([0-9XYMT]\)/>chr\1/' | sed 's/dna.*//'  > genome.fa
 fi
 
-$tools_bin/bedtools getfasta -fi genome.fa -bed NCL_200_interval.bed -s -name -fo NCL_200_interval.fa
+$tools_bin/bedtools2/bin/bedtools getfasta -fi genome.fa -bed NCL_200_interval.bed -s -name -fo NCL_200_interval.fa
 $tools_bin/merge_paired_sequences.py NCL_200_interval.fa  NCL_200.merged.fa
 
 
