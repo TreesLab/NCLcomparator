@@ -167,7 +167,7 @@ cat $geneGTF | awk '{for(i=1;i<=NF;i++) if($i=="gene_name"){print  $(i+1) "\t" $
 cat $geneGTF | awk '{for(i=1;i<=NF;i++) if($i=="exon_number") {print $(i+1) "\t" $0} }'| awk '{for(i=1;i<=NF;i++) if($i=="gene_name"){print  $(i+1) "\t" $0} }' | awk '{print $1 "\t" $2}' | sed 's/;//g' | sed 's/"//g'| sort -k1 -rnk2 | awk '!x[$1]++' | sort -k1,1 > GeneID_exonNum.txt
 
  
-cat $BASEDIR1\/$OPN\/STAR_RSEM_out\/RSEMout.genes.results | awk '{print $1 "\t" $6 "\t" $7}' | sed -e '1d' > genes_RSEM.txt
+cat $BASEDIR1\/$OPN\/STAR_RSEM_out\/RSEMout.genes.results | awk '{print $1 "\t" $6 "\t" $7}' | sed -e '1d' | sort -k1,1 > genes_RSEM.txt
 join ENSG_GeneID_convert.txt genes_RSEM.txt > ENSG_GeneID_RSEM.txt  
 ## ENSG versus GeneID is multiple to one, choose choose large FPKM as represent of GeneID ## 
 cat ENSG_GeneID_RSEM.txt | awk '{print $2 "\t" $3 "\t" $4}' |  sort -rnk2 | awk '!x[$1]++' | sort -k1,1 > ENSG_GeneID_RSEM.txt.tmp 
